@@ -1,25 +1,25 @@
-from turtle import Screen, Turtle
+from turtle import Turtle, Screen
+from snake import Snake 
+import time
 
 screen = Screen()
 screen.setup(width = 600, height = 600)
 screen.bgcolor("black")
 screen.title("My Snake Game")
+screen.tracer(0)
 
-# Create 3 turtles and position them like so: Each turtle should be a white square (default size: 20 x 20)
-snake = Turtle()
-snake.shape("square")
-snake.color("white")
-snake_shape = []
+snake = Snake()
 
-def make_snake():
-    i = 0
-    for snake in range(0,3):
-        new_snake = Turtle(shape = "square")
-        new_snake.color("white")
-        new_snake.goto(x = -20 + i, y = 0)
-        i += 20
-        snake_shape.append(new_snake)
+screen.listen() 
+screen.onkey(snake.up, "Up") # angle: 90
+screen.onkey(snake.down, "Down") # angle: 270
+screen.onkey(snake.left, "Left") # angle: 180 
+screen.onkey(snake.right, "Right") # angle: 0
 
-make_snake()
+game_is_on = True
 
-screen.exitonclick()
+while game_is_on:
+    screen.update()
+    time.sleep(0.1)
+
+    snake.move()
