@@ -24,9 +24,19 @@ game_is_on = True
 while game_is_on:
     screen.update()
     time.sleep(0.1) 
-    for seg in segments:
-        seg.forward(20)
-        # time.sleep(1) # 1s delay
+
+    # How to move snake? => 두 번째 사각형이 첫 번째 사각형이 있던 위치로 가고, 마지막 사각형이 두 번째 사각형의 위치로 가는 형식
+    for seg_num in range(len(segments) - 1, 0, -1): # (start = 2, stop = 0, step = -1) 2 1 0
+        new_x = segments[seg_num - 1].xcor()
+        new_y = segments[seg_num - 1].ycor()
+        segments[seg_num].goto(new_x, new_y)
+
+    segments[0].forward(20)
+    segments[0].left(90)
+
+
+ 
+# segments[0].left(90) => snake_segment가 연결되지 않아 이상한 동작 발생
 
 screen.exitonclick()
 
