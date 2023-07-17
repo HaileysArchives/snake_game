@@ -19,7 +19,7 @@ screen.onkey(snake.right, "Right") # angle: 0
 game_is_on = True
 
 while game_is_on:
-    screen.update()
-    time.sleep(0.1)
+    screen.update() # update 함수를 넣으면 그동안 실행되었던 코드들이 스크린창에 업데이트 되는 효과를 볼 수 있다.
+    time.sleep(0.1) 
 
     snake.move()
