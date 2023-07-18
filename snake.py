@@ -15,11 +15,19 @@ class Snake:
 
     def create_snake(self):
         for position in STARTING_POSITIONS:
+            self.add_segment(position)
+
+# Detect collision with tail
+# 뱀이 음식에 닿을 때마다 세그먼트를 추가 (길이 증가)
+    def add_segment(self, position):
             new_segment = Turtle("square")
             new_segment.color("white")
             new_segment.penup() 
             new_segment.goto(position)
             self.segments.append(new_segment)
+
+    def extend(self):
+        # add a new segment to the snake.
 
     def move(self):
         for seg_num in range(len(self.segments) - 1, 0, -1): # (start = 2, stop = 0, step = -1) 2 1 0
@@ -32,6 +40,8 @@ class Snake:
 # screen.onkey(snake.down, "Down") # angle: 270
 # screen.onkey(snake.left, "Left") # angle: 180 
 # screen.onkey(snake.right, "Right") # angle: 0
+
+
     def up(self):
         if self.head.heading() != DOWN:
             self.head.setheading(UP)

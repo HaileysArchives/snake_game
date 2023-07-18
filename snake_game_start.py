@@ -42,6 +42,6 @@ screen.exitonclick()
 
 # 우리가 뱀의 몸을 만들었을 때, 각각의 개별 조각이 생성된 다음 해당 위치로 이동되는 것을 볼 수 있다. 즉 동시에 움직이지 않는다. 
 
-# turtle.tracer(n = None, delay = None)
+# turtle.tracer(n = None, delay = None) # 그동안 실행되었던 코드들이 스크린창에 업데이트 되는 효과
 # turtle.update() => Perform a TurtleScreen update. To be used when tracer is turned off.
 # turtle.trace <=> turtle.update()
