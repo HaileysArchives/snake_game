@@ -19,6 +19,7 @@ class Snake:
 
 # Detect collision with tail
 # 뱀이 음식에 닿을 때마다 세그먼트를 추가 (길이 증가)
+
     def add_segment(self, position):
             new_segment = Turtle("square")
             new_segment.color("white")
@@ -28,6 +29,7 @@ class Snake:
 
     def extend(self):
         # add a new segment to the snake.
+        self.add_segment(self.segments[-1].position())
 
     def move(self):
         for seg_num in range(len(self.segments) - 1, 0, -1): # (start = 2, stop = 0, step = -1) 2 1 0
